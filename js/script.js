@@ -8,7 +8,7 @@ const viewReposButton = document.querySelector(".view-repos");
 const filterInput = document.querySelector(".filter-repos")
 
 const gitUserInfo = async function (){
-    const userInfo = await fetch(`http://api.github.com/users/${username}`);
+    const userInfo = await fetch(`https://api.github.com/users/${username}`);
     const data  = await userInfo.json();  
     displayUserInfo(data);
 };
@@ -34,7 +34,7 @@ const displayUserInfo = function (data) {
 };
 
 const gitRepos = async function(){
-    const fetchRepos = await fetch(`http://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+    const fetchRepos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     const repoData = await fetchRepos.json();
     displayRepos(repoData);
 };//There are two repoData variables. The other is global.
@@ -58,7 +58,7 @@ repoList.addEventListener("click", function(e){
 
 
 const getRepoInfo = async function (repoName) {
-    const fetchInfo = await fetch(`http://api.github.com/repos/${username}/${repoName}`);
+    const fetchInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await fetchInfo.json();
     console.log(repoInfo);
 
